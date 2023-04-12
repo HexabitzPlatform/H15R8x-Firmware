@@ -2,8 +2,8 @@
  BitzOS (BOS) V0.2.9 - Copyright (C) 2017-2023 Hexabitz
  All rights reserved
 
- File Name     : H15R80.c
- Description   : Source code for module H15R80.
+ File Name     : H15R8.c
+ Description   : Source code for module H15R8.
  	 	 	 	 (Description_of_module)
 
 (Description of Special module peripheral configuration):
@@ -15,7 +15,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "BOS.h"
-#include "H15R80_inputs.h"
+#include "H15R8_inputs.h"
 /* Define UART variables */
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
@@ -295,7 +295,7 @@ void SetupPortForRemoteBootloaderUpdate(uint8_t port){
 	__HAL_UART_ENABLE_IT(huart,UART_IT_RXNE);
 }
 
-/* --- H15R80 module initialization.
+/* --- H15R8 module initialization.
  */
 void Module_Peripheral_Init(void){
 
@@ -312,16 +312,16 @@ void Module_Peripheral_Init(void){
 }
 
 /*-----------------------------------------------------------*/
-/* --- H15R80 message processing task.
+/* --- H15R8 message processing task.
  */
 Module_Status Module_MessagingTask(uint16_t code,uint8_t port,uint8_t src,uint8_t dst,uint8_t shift){
-	Module_Status result =H15R80_OK;
+	Module_Status result =H15R8_OK;
 
 
 	switch(code){
 
 		default:
-			result =H15R80_ERR_UnknownMessage;
+			result =H15R8_ERR_UnknownMessage;
 			break;
 	}
 	
